@@ -1,0 +1,413 @@
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.battery-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-self: flex-end;
+    margin-right: 30px;
+    margin-top: 20px;
+    position: relative;
+    background-color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.battery {
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+.charge-button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+
+.charge-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+}
+
+.main-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    width: 100%;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.clock {
+    font-size: 28px;
+    padding: 30px;
+    border: none;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    min-width: 350px;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+.alarm-list {
+    width: 350px;
+    padding: 25px;
+    border: none;
+    border-radius: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alarm-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.alarm-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.alarm-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.alarm-form {
+    width: 100%;
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 30px;
+    border: none;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.time-inputs {
+    display: flex;
+    gap: 10px;
+    min-width: 300px;
+}
+
+.time-inputs input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    width: 80px;
+}
+
+.time-inputs input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+.mood-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 300px;
+}
+
+.mood-selector select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mood-selector select:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+.alarm-form button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+    width: fit-content;
+    margin-top: 10px;
+}
+
+.alarm-form button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+}
+
+.alarm-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: none;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alarm-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.alarm-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.alarm-info span:first-child {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.alarm-info span:last-child {
+    font-size: 14px;
+    color: #666;
+}
+
+.alarm-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.alarm-controls button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.alarm-controls button:first-child {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.alarm-controls button:last-child {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.alarm-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.charge-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(76, 175, 80, 0.9);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 20px;
+    font-size: 18px;
+    animation: fadeInOut 2s forwards;
+    z-index: 1001;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    20% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+    30% { transform: translate(-50%, -50%) scale(1); }
+    70% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* 테마 스타일 개선 */
+.theme-energetic {
+    background-color: #fff8e1;
+}
+
+.theme-calm {
+    background-color: #e8f5e9;
+}
+
+.theme-focused {
+    background-color: #f3e5f5;
+}
+
+.theme-happy {
+    background-color: #e3f2fd;
+}
+
+/* 캐릭터 관련 스타일 수정 */
+.charger-character {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    top: -150px;
+    right: -150px;        
+    transition: all 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1000;
+    transform: scaleX(1) rotate(-45deg);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.charger-character img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+/* 충전 시 위치와 애니메이션 */
+.charger-character.charging {
+    top: 20px;
+    right: 240px;
+    transform: scaleX(1);
+    opacity: 1;
+    animation: chargingBounce 0.5s infinite alternate;
+}
+
+/* 퇴장 애니메이션 */
+.charger-character.leaving {
+    top: -150px;
+    right: -150px;
+    transform: scaleX(1) rotate(-45deg);
+    opacity: 0;
+    transition: all 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes chargingBounce {
+    from {
+        transform: translateY(0) scaleX(1);
+    }
+    to {
+        transform: translateY(-5px) scaleX(1);
+    }
+}
+
+/*배터리 충전 효과*/
+.battery.charging {
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px #4CAF50;
+    }
+    to {
+        box-shadow: 0 0 20px #4CAF50;
+    }
+}
+
+/* 알람 시간 숨김 스타일 */
+.hidden-time {
+    background-color: black !important;
+    color: black !important;
+    box-shadow: none !important;
+}
+
+/* 알람 팝업 스타일 추가 */
+.alarm-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.alarm-popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.alarm-popup-content h2 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.alarm-popup-content p {
+    margin: 0 0 20px 0;
+    color: #666;
+    font-size: 18px;
+}
+
+.alarm-popup-content button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.alarm-popup-content button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+} 
